@@ -21,7 +21,7 @@ DEPEND="
 MAKEOPTS="${MAKEOPTS} -j1"
 
 DOCSDIR="${S}/"
-DOCS="LICENSE GPLv3 README.md"
+DOCS="LICENSE GPLv3 README.md TRANSLATION.md"
 
 src_unpack() {
 	unpack ${A}
