@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI="4"
-inherit eutils
+inherit eutils user
 
 DESCRIPTION="An Embeddable Fulltext Search Engine"
 HOMEPAGE="http://groonga.org/"
@@ -63,5 +63,5 @@ src_install() {
 	keepdir /var/{log,spool}/${PN} || die
 	fowners groonga:groonga /var/{log,spool}/${PN} || die
 
-	dodoc AUTHORS ChangeLog NEWS README || die
+	dodoc README.md || die
 }
