@@ -63,5 +63,5 @@ src_install() {
 	keepdir /var/{log,spool}/${PN} || die
 	fowners groonga:groonga /var/{log,spool}/${PN} || die
 
-	dodoc AUTHORS ChangeLog NEWS README || die
+	dodoc README.md || die
 }
