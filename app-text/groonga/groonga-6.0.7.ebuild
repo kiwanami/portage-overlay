@@ -12,7 +12,7 @@ SRC_URI="http://packages.groonga.org/source/groonga/${P}.tar.gz"
 LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="abort aio benchmark debug dynamic-malloc-change +exact-alloc-count fmalloc futex libedit libevent lzo mecab msgpack munin +nfkc ruby sphinx static-libs zeromq zlib"
+IUSE="abort aio benchmark debug dynamic-malloc-change +exact-alloc-count jemalloc fmalloc futex libedit libevent lzo mecab msgpack munin +nfkc ruby sphinx static-libs zeromq zlib"
 
 RDEPEND="benchmark? ( >=dev-libs/glib-2.8 )
 	libedit? ( >=dev-libs/libedit-3 )
@@ -23,6 +23,7 @@ RDEPEND="benchmark? ( >=dev-libs/glib-2.8 )
     munin? ( net-analyzer/munin )
 	ruby? ( dev-lang/ruby )
 	sphinx? ( >=dev-python/sphinx-1.1.2 )
+    jemalloc? ( dev-libs/jemalloc )
 	zeromq? ( net-libs/zeromq )
 	zlib? ( sys-libs/zlib )"
 DEPEND="${RDEPEND}
@@ -46,6 +47,7 @@ src_configure() {
 		$(use_enable libedit) \
 		$(use_with libevent) \
 		$(use_with lzo) \
+		$(use_with jemalloc) \
 		$(use_with mecab) \
 		$(use_with msgpack) \
 		$(use_with munin) \

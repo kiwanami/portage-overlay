@@ -5,7 +5,7 @@
 EAPI="4"
 inherit eutils
 
-MYSQL_VN=5.6.22
+MYSQL_VN=5.6.29
 
 DESCRIPTION="An Embeddable Fulltext Search Engine for MySQL"
 HOMEPAGE="http://mroonga.github.io/"
@@ -18,13 +18,19 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND=">=dev-db/mysql-${MYSQL_VN}
-          =app-text/groonga-4.1.0"
+          =app-text/groonga-6.0.0"
 DEPEND="${RDEPEND}
-	    virtual/pkgconfig"
+        virtual/pkgconfig"
 
 src_configure() {
-	econf \
-		--with-mysql-source=../mysql-${MYSQL_VN}/ \
+    pushd ../mysql-${MYSQL_VN}
+    cmake .
+    make mysqlservices
+    popd
+    
+    econf \
+        --with-mysql-source=../mysql-${MYSQL_VN}/ \
+        --with-mysql-build=../mysql-${MYSQL_VN}/ \
         --with-mysql-config=/usr/bin/mysql_config
 }
 
