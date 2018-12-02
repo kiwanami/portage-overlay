@@ -1,0 +1,24 @@
+diff -Naru ebview-0.3.6.2.orig/src/jcode.c ebview-0.3.6.2/src/jcode.c
+--- ebview-0.3.6.2.orig/src/jcode.c	2009-08-16 07:50:28.000000000 +0900
++++ ebview-0.3.6.2/src/jcode.c	2018-12-02 19:17:25.259153858 +0900
+@@ -275,7 +275,7 @@
+ 	return(result);
+ }
+ 
+-inline gboolean isjisp(const gchar *buff){
++gboolean isjisp(const gchar *buff){
+         g_assert(buff != NULL);
+ 
+         if((buff[0] >= 0x21) && (buff[0] <= 0x74) &&
+diff -Naru ebview-0.3.6.2.orig/src/jcode.h ebview-0.3.6.2/src/jcode.h
+--- ebview-0.3.6.2.orig/src/jcode.h	2004-02-15 22:59:41.000000000 +0900
++++ ebview-0.3.6.2/src/jcode.h	2018-12-02 19:17:29.957679894 +0900
+@@ -31,7 +31,7 @@
+ 
+ gchar *iconv_convert(const gchar *icode, const gchar *ocode, const gchar *inbuf);
+ gchar *iconv_convert2(const gchar *icode, const gchar *ocode, const gchar *orig);
+-inline gboolean isjisp(const gchar *buff);
++gboolean isjisp(const gchar *buff);
+ gboolean iseuckanji(const guchar *buff);
+ gboolean iseuchiragana(const guchar *buff);
+ gboolean iseuckatakana(const guchar *buff);
